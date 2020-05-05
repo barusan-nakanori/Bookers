@@ -16,10 +16,10 @@
 				<td><%= book.body %></td>
 			</tr>
 			<tr>
-				<td><%= link_to "Show",book_path(book) %></td>
+				<td><%= link_to "Show",book_path(book.id) %></td>
 			</tr>
 			<tr>
-				<td><%= link_to "Edit",edit_book_path(book) %></td>
+				<td><%= link_to "Edit",edit_book_path(book.id) %></td>
 			</tr>
 			<tr>
 				<td><%= link_to "Delete","#" %></td>
@@ -27,5 +27,15 @@
 		<% end %>
 	</tbody>
 </table>
-<h2>New book</h2>
 
+<h2>New book</h2>
+<%= form_for(@book) do |f| %>
+
+	<h4>Title</h4>
+	<%= f.text_field :title %>
+
+	<h4>Body</h4>
+	<%= f.text_area :body %>
+
+	<%= f.submit "Create Book"%>
+<% end %>
